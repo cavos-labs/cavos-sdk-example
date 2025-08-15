@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useSetAtom } from "jotai";
 import Image from "next/image";
 import axios from "axios";
 import { SignInWithGoogle, SignInWithApple } from "cavos-service-sdk";
-import { signInAtom } from "../lib/auth-atoms";
 import type { SignInResponse, ApiResponse } from "../lib/types";
 
 interface LoginFormProps {
@@ -160,12 +158,14 @@ export default function LoginForm({ onSignIn }: LoginFormProps) {
                 appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID || ""}
                 network={process.env.NEXT_PUBLIC_STARKNET_NETWORK || ""}
                 finalRedirectUri={`localhost:3000/auth/callback`}
+                text="Continuar con Google"
               />
               
               <SignInWithGoogle
                 appId={process.env.NEXT_PUBLIC_CAVOS_APP_ID || ""}
                 network={process.env.NEXT_PUBLIC_STARKNET_NETWORK || ""}
                 finalRedirectUri={`${typeof window !== 'undefined' ? window.location.origin : ''}/auth/callback`}
+                text="Continuar con Apple"
               />
             </div>
           </>

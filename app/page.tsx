@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import axios from "axios";
 import LoginForm from "../components/LoginForm";
 import { userAtom, isAuthenticatedAtom, signInAtom, signOutAtom } from "../lib/auth-atoms";
